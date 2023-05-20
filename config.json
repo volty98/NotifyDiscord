@@ -1,0 +1,10 @@
+{
+    "plugin_name": "NotifyDiscord",
+    "uuid": "ff75ac90-f426-4535-b193-776166a3c504",
+    "plugin_view_name": "Discord通知用プラグイン",
+    "description": "イベント通知をDiscordに通知します。",
+    "author":  "Shingo FUKUYA",
+    "version": "0.0.1",
+    "plugin_type": "event",
+    "event_triggers": "saved"
+}
