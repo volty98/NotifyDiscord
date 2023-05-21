@@ -24,6 +24,9 @@ class Plugin extends PluginEventBase
         // プラグインフォルダを取得
         $dir_path = $this->plugin->getFullPath();
 
+        // カスタムテーブルの表示名を取得する
+        $display_name = '' . $this->custom_table->table_view_name;
+
         // カスタムテーブルの値のモデルインスタンスを取得する
         $query = $this->custom_table->getValueModel()->query();
         
@@ -49,7 +52,7 @@ class Plugin extends PluginEventBase
         $output_text = str_replace(["\r\n", "\r", "\n"], '\n', $output_text);
 
         // Discordに送信
-        $jsonData = '{"content": "<' . $output_day. '>\n```' . $output_text . '```"}';
+        $jsonData = '{"content": "<' . $output_day. '> ' . $display_name . '\n```' . $output_text . '```"}';
         $ch = curl_init($webhook_url);
         curl_setopt($ch, CURLOPT_CUSTOMREQUEST, 'POST');
         curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonData);
